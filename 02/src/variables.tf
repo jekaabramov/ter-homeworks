@@ -31,11 +31,11 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
-
-###ssh vars
-
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "<your_ssh_ed25519_key>"
-  description = "ssh-keygen -t ed25519"
+# Common metadata
+variable "common_metadata" {
+  type = map(string)
+  default = {
+    ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICwXzj3y2Gi6SuRHhMiTfehzpKcbi2sGMr3Q8H4DO9y7 abramov@abramov"
+    serial-port-enable = "1"
+  }
 }
